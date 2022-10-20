@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "rrweb recorder extension",
+  "version": "0.0.1",
+  "description": "",
+  "permissions": [
+    "activeTab",
+    "webNavigation",
+    "tabs",
+    "desktopCapture",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "*://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "dist/index.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "dist/*"
+      ],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ]
+    }
+  ]
+}
